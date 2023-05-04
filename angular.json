@@ -67,7 +67,8 @@
               "browserTarget": "DynamicComponentLoader14:build:production"
             },
             "development": {
-              "browserTarget": "DynamicComponentLoader14:build:development"
+              "browserTarget": "DynamicComponentLoader14:build:development",
+              "port": 8000
             }
           },
           "defaultConfiguration": "development"
@@ -97,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cd62e72a-8d72-4344-96f4-d94bad35ea17"
   }
 }

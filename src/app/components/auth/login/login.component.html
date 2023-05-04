@@ -1,0 +1,41 @@
+<div class="container-custom" >
+    <div class="row-custom">
+        <div class="col-md-4-custom"></div>
+        <div class="col-md-4-custom">
+            <div class="mt-140">
+                <div class="card">
+                    <div class="card-header" *ngIf="configdata.Config?.ShowHeader">
+                        <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="22" height="22"><span> {{ configdata.Config?.HeaderText }}</span>
+                    </div>
+                    <div class="card-body">
+                      <form class="form-signin">
+                        <div class="divflex">
+                            <form class="grid-container">
+                                <h5 class="card-title">Welcome, Please enter your email and password </h5>
+                                <div class="grid2">
+                                    <label class="label">Email</label>
+                                    <input class="inputText" placeholder="Email (Required)" type="text" value="admin">
+                                </div>
+                                <div class="grid2">
+                                    <label class="label">Password</label>
+                                    <input class="inputText" placeholder="Paswword (Required)" type="text" value="12345">
+                                </div>
+                                <div class="grid2 mt-10">
+                                    <input class="checkbox" id="sold" name="sold" type="checkbox">
+                                    <label class="label-check" for="sold"> Remember Me</label>
+                                </div>
+                                <div class="mt-30">
+                                    <button (click)="login()" class="btn-custom btn-primary-custom" type="button">Sign in</button>&nbsp;
+                                    <button (click)="removeCss()" class="btn-custom btn-light-custom" type="button">Remove Css</button>
+                                </div>
+                            </form>
+                            <p class="p-footer">© 2017-2023</p>
+                        </div>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-4-custom"></div>
+    </div>
+</div>
