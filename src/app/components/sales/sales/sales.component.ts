@@ -6,11 +6,21 @@ import { ModuleEnumType } from 'src/app/modules/moduleenumtype';
 import { CommonService } from 'src/app/services/common.service';
 import { ComponentsloaderService } from 'src/app/services/componentsloader.service';
 import { DataService } from 'src/app/services/data.service';
+import { style, transition, trigger, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
-  styles: [':host { width: 49.5%; float: left; display: flex; flex-direction: column; margin-left: .5%}']
+  host: { class: 'sales-host-class'},
+  animations: [
+    trigger('fade', [ 
+      transition('void => *', [
+        style({ opacity: 0 }), 
+        animate(500, style({opacity: 1}))
+      ]) 
+    ])
+  ]
+  //styles: [':host { width: 49.5%; float: left; display: flex; flex-direction: column; margin-left: .5%}']
 })
 export class SalesComponent implements OnInit, OnDestroy {
 

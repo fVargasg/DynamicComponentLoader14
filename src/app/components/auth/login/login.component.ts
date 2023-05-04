@@ -6,10 +6,19 @@ import { ModuleEnumType } from 'src/app/modules/moduleenumtype';
 import { CommonService } from 'src/app/services/common.service';
 import { ComponentsloaderService } from 'src/app/services/componentsloader.service';
 import { DataService } from 'src/app/services/data.service';
+import { style, transition, trigger, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  animations: [
+    trigger('fade', [ 
+      transition('void => *', [
+        style({ opacity: 0 }), 
+        animate(500, style({opacity: 1}))
+      ]) 
+    ])
+  ]
 })
 export class LoginComponent implements OnInit, OnDestroy {
   
@@ -32,7 +41,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   removeCss() {
-    document.getElementById('loginComponentCss')?.remove();
+    document.getElementById('loginCssSelector')?.remove();
   }
 
 }

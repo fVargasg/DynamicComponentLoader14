@@ -1,3 +1,4 @@
+import { style, transition, trigger, animate, state } from '@angular/animations';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ComponentConfigData } from 'src/app/injectors/classes/compConfigData';

@@ -63,12 +63,13 @@ export class AppComponent implements OnInit {
       
                                                              
     } else {
-      // Assuming this info is coming from the database.
-      let idElement = 'loginComponentCss';
-      this.container.insert(this.componentLoaderService.loadComponent('Login', 
-                                                                      new Styles(idElement, this.dataService.getLoginCss()), 
+
+      let componentReturn = this.dataService.getComponentById(1);
+
+      this.container.insert(this.componentLoaderService.loadComponent(componentReturn.Name, 
+                                                                      componentReturn.Styles, 
                                                                       ModuleEnumType.AUTH,
-                                                                      new ComponentConfigData(new Configuration(true, 'Login', true), { numberArray: [1,2,3,4,5] })).hostView);
+                                                                      new ComponentConfigData(componentReturn.Configuration, { numberArray: [1,2,3,4,5] })).hostView);
       
     }
   }

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { ComponentDb } from '../contracts/componentDb';
+import { Configuration } from '../injectors/classes/configuration';
+import { Styles } from '../injectors/classes/styles';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +10,26 @@ import { HttpClient } from '@angular/common/http'
 export class DataService {
 
   constructor(private http: HttpClient) { }
+
+  getComponentById(id: number) : ComponentDb {
+
+    let component =  new ComponentDb();
+
+    switch (id) {
+      case 1:
+        component.Id = id;
+        component.Name = 'Login';
+        component.Styles = new Styles('loginCssSelector', this.getLoginCss());
+        component.Configuration = new Configuration(true, 'Login', false);
+        break;
+    
+      default:
+        break;
+    }
+
+    return component;
+
+  }
 
   getLoginCss(): string {
     return `
@@ -91,7 +114,7 @@ export class DataService {
     .divflex .grid-container .inputDate{ width:100%;height:30px}
     .divflex .grid-container .select{ width:100%; height:30px}
     .divflex .grid-container .label {font-size: 13px;font-weight: 500;line-height: 24px;}
-    .divflex .grid-container .label-check {font-size: 13px;font-weight: 500;line-height: 21px;}
+    .divflex .grid-container .label-check {font-size: 13px;font-weight: 500;line-height: 21px; margin-left: 6px}
     .divflex .p-footer {font-size: 14px; text-align: center !important; margin-top: 30px}
 
     .divflex .mt-10 { margin-top: 10px;}
@@ -493,13 +516,7 @@ export class DataService {
   getSalesCss(): string {
     return `
    
-    @media (min-width: 768px) {
-      .col-md-4 {
-        -ms-flex: 0 0 33.333333%;
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-      }
-    }
+    .sales-host-class { width: 49.5%; float: left; display: flex; flex-direction: column; margin-left: .5% }
     
 
     .mt-10 {
@@ -614,7 +631,7 @@ export class DataService {
 
   getAnCss(): string {
     return `
-    
+    .announcements-host-class { width: 49.5%; display: flex; float: left; flex-direction: column; margin-right: .5% }
     .row-c {
       margin-right: -15px;
       margin-left: -15px;
@@ -741,7 +758,10 @@ export class DataService {
       }
     }
     
-
+    .row-c {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
     .mt-10 {
       margin-top: 10px
     }
